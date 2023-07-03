@@ -62,6 +62,7 @@ require("lazy").setup({
 			{
 				"j-hui/fidget.nvim",
 				event = "VeryLazy",
+				tag = "legacy",
 				opts = {
 					text = {
 						spinner = "arc",
@@ -256,10 +257,6 @@ require("lazy").setup({
 				}),
 			})
 		end,
-	},
-
-	{
-		"onsails/lspkind.nvim",
 	},
 
 	{
@@ -485,6 +482,9 @@ require("lazy").setup({
 			-- See `:help telescope` and `:help telescope.setup()`
 			require("telescope").setup({
 				pickers = {
+					find_files = {
+						hidden = true,
+					},
 					buffers = {
 						show_all_buffers = true,
 						sort_mru = true,
@@ -501,6 +501,17 @@ require("lazy").setup({
 							["<C-u>"] = false,
 							["<C-d>"] = false,
 						},
+					},
+					file_ignore_patterns = {
+						"node_modules",
+						".git",
+						".cache",
+						"vendor",
+						"ios",
+						"android",
+						".yarn",
+						".bundle",
+						".DS_Store",
 					},
 				},
 			})
